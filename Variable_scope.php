@@ -1,29 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-   $a = 98; // global scope variable
-   function test(){
-    //    $a = 97; // local scope variable
+<?php
 
-        global $a; // give me the access for global variable
-        $a = 100; // it will change the value of global variable
-       echo "The value of your variable is $a";
-       
-   }
-   test();
-   echo $a; // it will give the new value of global varibal;
-   echo "<br>";
+// 1: local scope : we can only access the variable within the functional block;
+// $a= 1;
+// function test(){
+//     echo $a;
+// }
+// test();
 
-//     to find all global variables
-   echo var_dump($GLOBALS);
 
-    ?>
-</body>
-</html>
+// 2:  global scope:we can access the variable througout the
+// $a = 1;
+// $b =2;
+// function sum(){
+//     global $a,$b;
+//     $b = $a + $b;
+// }
+// sum();
+// echo $b;
+
+ 
+
+// we can also use $GLOBALS[] ;
+// $a = 1;
+// $b = 2;
+
+// function Sum()
+// {
+//     $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+// } 
+
+// Sum();
+// echo $b;
+
+
+
+// 3: static variable : 
+function test(){
+    static $a=1;
+    echo $a;
+    $a++;
+ 
+
+}
+test();
+test();
+test();
+?>
